@@ -21,12 +21,12 @@ A production-ready Retrieval-Augmented Generation (RAG) system that lets you upl
 
 ```
 ┌─────────────────────────────────────────────────┐
-│                  User Interface                  │
-│          (Streamlit UI  /  CLI  /  API)          │
+│                  User Interface                 │
+│          (Streamlit UI  /  CLI  /  API)         │
 └─────────────────────┬───────────────────────────┘
                       │
 ┌─────────────────────▼───────────────────────────┐
-│               RAG Pipeline                       │
+│               RAG Pipeline                      │
 │  ┌──────────┐  ┌──────────┐  ┌───────────────┐  │
 │  │ Retriever│→ │ Context  │→ │  LLM Generate │  │
 │  │ (Top-K)  │  │ Builder  │  │  (Answer)     │  │
@@ -34,18 +34,18 @@ A production-ready Retrieval-Augmented Generation (RAG) system that lets you upl
 └─────────────────────┬───────────────────────────┘
                       │
 ┌─────────────────────▼───────────────────────────┐
-│             Vector Store (FAISS/Chroma)           │
+│             Vector Store (FAISS/Chroma)         │
 │  ┌──────────────┐  ┌─────────────────────────┐  │
-│  │  Embeddings  │  │  Document Chunks + Meta  │  │
+│  │  Embeddings  │  │  Document Chunks + Meta │  │
 │  │  (384/768d)  │  │                         │  │
 │  └──────────────┘  └─────────────────────────┘  │
 └─────────────────────┬───────────────────────────┘
                       │
 ┌─────────────────────▼───────────────────────────┐
-│           Document Processor                     │
-│  ┌────┐ ┌─────┐ ┌─────┐ ┌────┐ ┌─────┐        │
-│  │PDF │ │DOCX │ │ TXT │ │ MD │ │ CSV │        │
-│  └────┘ └─────┘ └─────┘ └────┘ └─────┘        │
+│           Document Processor                    │
+│  ┌────┐ ┌─────┐ ┌─────┐ ┌────┐ ┌─────┐          │
+│  │PDF │ │DOCX │ │ TXT │ │ MD │ │ CSV │          │
+│  └────┘ └─────┘ └─────┘ └────┘ └─────┘          │
 │         ↓ Text Extraction ↓ Chunking            │
 └─────────────────────────────────────────────────┘
 ```
@@ -118,22 +118,22 @@ rag-assistant/
 
 | Strategy      | Best For                              | Description                                      |
 |---------------|---------------------------------------|--------------------------------------------------|
-| `semantic`    | General documents                     | Splits by headers/sections, then by sentences     |
-| `sentence`    | Narrative text, articles              | Respects sentence boundaries with overlap          |
-| `paragraph`   | Well-structured docs with paragraphs  | Splits by paragraph breaks, merges short ones      |
-| `fixed`       | Uniform processing                    | Fixed character windows with overlap               |
+| `semantic`    | General documents                     | Splits by headers/sections, then by sentences    |
+| `sentence`    | Narrative text, articles              | Respects sentence boundaries with overlap        |
+| `paragraph`   | Well-structured docs with paragraphs  | Splits by paragraph breaks, merges short ones    |
+| `fixed`       | Uniform processing                    | Fixed character windows with overlap             |
 
 ### Embedding Models
 
 | Model                  | Dimensions | Speed  | Quality |
-|------------------------|-----------|--------|---------|
-| `all-MiniLM-L6-v2`    | 384       | ⚡ Fast | Good    |
+|------------------------|-----------|--------|----------|
+| `all-MiniLM-L6-v2`    | 384       | ⚡ Fast | Good      |
 | `all-mpnet-base-v2`   | 768       | 🐢 Slower | Better |
 
 ### LLM Providers
 
-| Provider   | Setup                                     | Cost       |
-|------------|-------------------------------------------|------------|
+| Provider   | Setup                                     | Cost        |
+|------------|-------------------------------------------|-------------|
 | OpenAI     | Set `OPENAI_API_KEY` in `.env`            | Pay-per-use |
 | Anthropic  | Set `ANTHROPIC_API_KEY` in `.env`         | Pay-per-use |
 | Ollama     | Install Ollama + `ollama pull llama3.2`   | Free/local  |
@@ -180,4 +180,4 @@ print(response.format_sources())
 
 ## 📝 License
 
-MIT — use freely for personal and commercial projects.
+MIT
